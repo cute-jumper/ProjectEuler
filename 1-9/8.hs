@@ -4,4 +4,5 @@ stringProduct _ 0 = 1
 stringProduct "" _ = 1
 stringProduct (hd:tl) n = (read [hd]::Int) * stringProduct tl (n - 1)
 
-getAnswer str@(_:tl) = max $ (stringProduct str 5) (getAnswer tl)
+getAnswer str@(_:tl) =
+  if length tl > 5 then max (stringProduct str 5) (getAnswer tl) else (stringProduct str 5)
