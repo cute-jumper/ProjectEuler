@@ -18,6 +18,7 @@ getPrimeFactors num =
 getNumberOfFactors::Int->Int
 getNumberOfFactors = product . map ((+1) . length) . group . getPrimeFactors
 
+main :: IO ()
 main = do
   print . head . dropWhile (\x -> getNumberOfFactors x <= 500) $ triangular
   where
